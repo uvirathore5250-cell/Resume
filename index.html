@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUVRAJ SINGH RATHORE | SALES & BUSINESS STRATEGIST</title>
+    <title>YUVRAJ SINGH RATHORE | SALES & MANAGEMENT EXECUTIVE</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;600;800&display=swap');
 
@@ -11,172 +11,172 @@
             --gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #aa771c 100%);
             --gold-solid: #e1b382;
             --black: #050505;
-            --dark-grey: #0f0f0f;
+            --dark-card: #0f0f0f;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { 
             background-color: var(--black); 
             color: #ffffff; 
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
         }
 
+        /* Nav Bar */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: rgba(0,0,0,0.98);
+            padding: 20px 8%; background: rgba(0,0,0,0.95);
             border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
         }
+        .logo { font-family: 'Syncopate'; font-size: 1.1rem; letter-spacing: 3px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav a { color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-left: 25px; letter-spacing: 1px; }
 
-        .logo-box { display: flex; flex-direction: column; cursor: pointer; }
-        .logo-text { 
-            font-family: 'Syncopate'; font-size: 1.3rem; letter-spacing: 5px;
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .sub-logo { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; margin-top: 5px; }
+        /* Sections */
+        section { padding: 100px 10%; border-bottom: 1px solid #111; }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 120px 10%; }
+        .hero h1 { font-family: 'Syncopate'; font-size: clamp(2rem, 6vw, 4rem); background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+        .hero p { max-width: 700px; margin: 0 auto; color: #888; font-size: 18px; font-weight: 300; }
 
-        nav a { 
-            color: #fff; text-decoration: none; font-size: 11px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; cursor: pointer;
-        }
+        .section-title { font-family: 'Syncopate'; font-size: 1.5rem; color: var(--gold-solid); margin-bottom: 50px; text-align: center; letter-spacing: 5px; }
 
-        .section { display: none; padding: 80px 10%; min-height: 90vh; animation: pageIn 0.7s ease-out; }
-        .section.active { display: block; }
-        @keyframes pageIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        /* Sales & Management Highlights */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--dark-card); padding: 40px; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .card:hover { border-color: var(--gold-solid); transform: translateY(-5px); }
+        .card h3 { font-family: 'Syncopate'; font-size: 0.9rem; margin-bottom: 15px; color: #fff; }
+        .card p { font-size: 14px; color: #777; }
 
-        .hero-title { text-align: center; margin-bottom: 60px; }
-        .hero-title h1 { 
-            font-family: 'Syncopate'; font-size: clamp(2rem, 8vw, 3.8rem); 
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 25px; line-height: 1.1;
-        }
-        .hero-desc { max-width: 800px; margin: 0 auto; color: #999; font-size: 16px; text-align: center; font-weight: 300; }
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 30px; border-left: 1px solid #222; margin-bottom: 50px; }
+        .timeline-item::before { content: ""; position: absolute; left: -5px; top: 0; width: 9px; height: 9px; background: var(--gold-solid); border-radius: 50%; }
+        .role-title { font-family: 'Syncopate'; font-size: 1.1rem; color: #fff; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .role-date { color: var(--gold-solid); font-size: 12px; font-weight: 800; }
+        .company-name { display: block; color: #555; font-weight: 800; text-transform: uppercase; font-size: 12px; margin: 5px 0 15px; }
+        .role-desc { list-style: none; color: #999; font-size: 14px; }
+        .role-desc li { margin-bottom: 8px; }
+        .role-desc li::before { content: "→ "; color: var(--gold-solid); }
 
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .info-card { background: var(--dark-grey); padding: 40px; border-top: 2px solid #222; position: relative; }
-        .info-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
-        .info-card h2 { font-family: 'Syncopate'; font-size: 1rem; color: var(--gold-solid); margin-bottom: 20px; }
+        /* Skills Tags */
+        .tag-box { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .tag { background: #111; padding: 12px 25px; font-size: 11px; font-weight: 800; text-transform: uppercase; border: 1px solid #222; color: #666; }
 
-        .exp-box { border-bottom: 1px solid #1a1a1a; padding: 40px 0; }
-        .exp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-        .exp-role { font-family: 'Syncopate'; font-size: 1rem; color: #fff; }
-        .exp-time { color: var(--gold-solid); font-size: 12px; font-weight: 800; }
-        .exp-loc { font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .exp-list { list-style: none; }
-        .exp-list li { color: #999; font-size: 14px; margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--gold-solid); }
+        footer { text-align: center; padding: 60px; color: #333; font-size: 10px; letter-spacing: 3px; }
 
-        .tag { background: #111; border: 1px solid #222; padding: 10px 20px; font-size: 10px; font-weight: 800; color: #888; text-transform: uppercase; display: inline-block; margin: 5px; }
-
-        footer { text-align: center; padding: 60px 0; color: #333; font-size: 10px; letter-spacing: 4px; }
+        @media (max-width: 768px) { .role-title { font-size: 0.9rem; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-box" onclick="showPage('home')">
-            <span class="logo-text">YUVRAJ SINGH RATHORE</span>
-            <span class="sub-logo">Sales & Business Development</span>
-        </div>
+        <div class="logo">YUVRAJ SINGH RATHORE</div>
         <nav>
-            <a onclick="showPage('home')">Executive Bio</a>
-            <a onclick="showPage('experience')">Sales Career</a>
-            <a onclick="showPage('skills')">Expertise</a>
+            <a href="#about">About</a>
+            <a href="#experience">Career</a>
+            <a href="#skills">Expertise</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="home" class="section active">
-        <div class="hero-title">
-            <h1 style="background: none; -webkit-text-fill-color: #444; font-size: 14px; margin-bottom: 10px;">REVENUE GROWTH SPECIALIST</h1>
-            <h1>YUVRAJ SINGH RATHORE</h1>
-            <p class="hero-desc">
-                High-impact Sales Professional with over 10 years of experience in driving revenue, client acquisition, and high-stakes relationship management. Proven expertise in closing deals and managing gym operations at an executive level.
-            </p>
-        </div>
-        <div class="grid-container">
-            <div class="info-card">
-                <h2>Sales Philosophy</h2>
-                <p>Translating client needs into high-value solutions. Expertise in lead conversion, CRM management, and aggressive market growth.</p>
+    <section id="about" class="hero">
+        <h1 style="background: none; -webkit-text-fill-color: #333; font-size: 12px; letter-spacing: 8px; margin-bottom: 15px;">SALES EXECUTIVE & STRATEGIST</h1>
+        <h1>YUVRAJ SINGH RATHORE</h1>
+        <p>Expert in <strong>Revenue Growth</strong> and <strong>Operational Management</strong> with a 10-year track record of high-ticket client acquisition and relationship building.</p>
+    </section>
+
+    <section>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Revenue Growth</h3>
+                <p>Proven ability to design sales strategies that convert leads into long-term revenue streams.</p>
             </div>
-            <div class="info-card">
-                <h2>Operational Logic</h2>
-                <p>Utilizing Mechanical Engineering precision to streamline business operations and resolve complex organizational bottlenecks.</p>
+            <div class="card">
+                <h3>Management</h3>
+                <p>10+ years of operational gym management, handling facility ROI and team leadership.</p>
+            </div>
+            <div class="card">
+                <h3>Precision</h3>
+                <p>Applying Mechanical Engineering principles to business workflows for maximum efficiency.</p>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section">
-        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">PROFESSIONAL EXPERIENCE</h2>
-        
-        <div class="exp-box">
-            <div class="exp-head">
-                <span class="exp-role">Sales Manager</span>
-                <span class="exp-time">MAR 2020 - JAN 2023</span>
+    <section id="experience">
+        <h2 class="section-title">PROFESSIONAL TIMELINE</h2>
+
+        <div class="timeline-item">
+            <div class="role-title">
+                <span>SALES MANAGER</span>
+                <span class="role-date">MAR 2020 - JAN 2023</span>
             </div>
-            <span class="exp-loc">KK Developer | Pune, India</span>
-            <ul class="exp-list">
-                <li>Designed and executed sales strategies that significantly increased quarterly revenue.</li>
-                <li>Identified and penetrated new market segments through proactive lead generation.</li>
-                <li>Built and nurtured long-term HNI (High Net-worth Individual) client relationships through consistent follow-ups.</li>
+            <span class="company-name">KK Developer | Pune</span>
+            <ul class="role-desc">
+                <li>Increased sales revenue by developing and implementing aggressive sales frameworks.</li>
+                <li>Built long-lasting HNI client relationships through exceptional service and consistent follow-ups.</li>
+                <li>Identified market needs and customized service offerings to ensure quick deal closure.</li>
             </ul>
         </div>
 
-        <div class="exp-box">
-            <div class="exp-head">
-                <span class="exp-role">Sales & Gym Management</span>
-                <span class="exp-time">JAN 2014 - APR 2025</span>
+        <div class="timeline-item">
+            <div class="role-title">
+                <span>SALES & GYM MANAGEMENT</span>
+                <span class="role-date">JAN 2014 - APR 2025</span>
             </div>
-            <span class="exp-loc">Evolution Fitness & Gitai Gym</span>
-            <ul class="exp-list">
-                <li>Headed sales operations, focusing on membership growth and high-ticket personal training packages.</li>
-                <li>Optimized service delivery models to improve facility ROI and operational efficiency.</li>
-                <li>Resolved complex customer relations issues, ensuring 95%+ client satisfaction.</li>
+            <span class="company-name">Evolution Fitness & Gitai Gym | Pune</span>
+            <ul class="role-desc">
+                <li>Headed membership sales and gym operations with a focus on high client retention.</li>
+                <li>Resolved operational bottlenecks and improved facility service delivery standards.</li>
+                <li>Managed high-stakes client relations with a strong sense of personal responsibility.</li>
             </ul>
         </div>
 
-        <div class="exp-box">
-            <div class="exp-head">
-                <span class="exp-role">Business Development (Client Acquisition)</span>
-                <span class="exp-time">AUG 2014 - JUL 2024</span>
+        <div class="timeline-item">
+            <div class="role-title">
+                <span>SALES TRAINER & COACH</span>
+                <span class="role-date">AUG 2014 - JUL 2024</span>
             </div>
-            <span class="exp-loc">R G Fitness Club | Pune, India</span>
-            <ul class="exp-list">
-                <li>Consistently over-achieved sales targets for personal coaching and nutrition services.</li>
-                <li>Increased client retention rates through strategic communication and personalized service marketing.</li>
+            <span class="company-name">R G Fitness Club | Pune</span>
+            <ul class="role-desc">
+                <li>Combined technical fitness coaching with service marketing to drive personal training sales.</li>
+                <li>Mastered client retention through tailored communication and psychological motivation.</li>
+                <li>Consistently over-achieved monthly sales targets for premium coaching packages.</li>
             </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="role-title">
+                <span>DIPLOMA IN MECHANICAL ENGINEERING</span>
+                <span class="role-date">JAN 2018</span>
+            </div>
+            <span class="company-name">MIPS Barmer | Rajasthan</span>
+            <p style="color: #666; font-size: 14px;">Structural thinking and logical problem-solving foundation.</p>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">SALES & STRATEGY</h2>
-        <div class="grid-container">
-            <div class="info-card">
-                <h2>Core Sales Skills</h2>
-                <div class="tag">Revenue Growth</div>
-                <div class="tag">Lead Generation</div>
-                <div class="tag">Market Analysis</div>
-                <div class="tag">Negotiation</div>
-            </div>
-            <div class="info-card">
-                <h2>Leadership</h2>
-                <div class="tag">Decision-Making</div>
-                <div class="tag">Problem-Solving</div>
-                <div class="tag">CRM Mastery</div>
-                <div class="tag">Team Guidance</div>
-            </div>
+    <section id="skills">
+        <h2 class="section-title">EXECUTIVE SKILLS</h2>
+        <div class="tag-box">
+            <div class="tag">Business Development</div>
+            <div class="tag">Lead Generation</div>
+            <div class="tag">Relationship Building</div>
+            <div class="tag">Decision-Making</div>
+            <div class="tag">Problem-Solving</div>
+            <div class="tag">Service Marketing</div>
+            <div class="tag">CRM Management</div>
+            <div class="tag">Leadership</div>
+            <div class="tag">Team Management</div>
         </div>
     </section>
 
-    <footer>YUVRAJ SINGH RATHORE | SALES STRATEGIST © 2026</footer>
+    <section id="contact" style="text-align: center;">
+        <h2 class="section-title">GET IN TOUCH</h2>
+        <p style="color: var(--gold-solid); font-size: 24px; font-weight: 800; margin-bottom: 10px;">uviirathore5250@gmail.com</p>
+        <p style="color: #888; letter-spacing: 5px;">PUNE | +91 7387075250</p>
+    </section>
 
-    <script>
-        function showPage(id) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <footer>YUVRAJ SINGH RATHORE © 2026 | DESIGNED FOR GROWTH</footer>
+
 </body>
 </html>
