@@ -8,254 +8,202 @@
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;500;800&display=swap');
 
         :root {
-            --gold-glossy: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             --gold-text: #e1b382;
-            --deep-black: #050505;
+            --black: #050505;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            background-color: var(--deep-black); 
+            background-color: var(--black); 
             color: #ffffff; 
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        #sparks-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; opacity: 0.6;
-        }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.5; pointer-events: none; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 6%; background: rgba(0,0,0,0.95);
+            padding: 25px 6%; background: rgba(0,0,0,0.9);
             border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(15px);
-        }
-
-        .logo-area { display: flex; flex-direction: column; }
-        .logo { 
-            font-family: 'Syncopate', sans-serif; 
-            background: var(--gold-glossy);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-size: 1.2rem; letter-spacing: 4px; text-decoration: none; 
-            background-size: 200% auto; 
-            animation: goldFlow 3s linear infinite;
-            cursor: pointer;
-        }
-
-        .powered-by { 
-            font-size: 9px; color: #666; letter-spacing: 2px; text-transform: uppercase; font-weight: 800;
-        }
-        
-        nav a { 
-            color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-left: 20px;
-        }
-
-        .page { display: none; padding: 80px 8%; min-height: 90vh; position: relative; z-index: 1; animation: fadeIn 0.8s ease-out; }
-        .page.active { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes goldFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
-
-        .hero { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 60vh; }
-        .hero h1 { 
-            font-family: 'Syncopate', sans-serif; font-size: clamp(1.5rem, 5vw, 3rem); 
-            background: var(--gold-glossy); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-size: 200% auto; animation: goldFlow 4s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
-        .glass-box { 
-            background: rgba(15,15,15,0.8); padding: 40px; 
-            border-left: 3px solid var(--gold-text); 
             backdrop-filter: blur(10px);
         }
-        .glass-box h2 { font-family: 'Syncopate'; color: var(--gold-text); font-size: 1rem; margin-bottom: 15px; }
-        .glass-box p { color: #aaa; font-size: 14px; line-height: 1.8; }
 
-        .tag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 30px; }
-        .tag-item { background: #0f0f0f; padding: 15px; text-align: center; border: 1px solid #222; font-size: 10px; font-weight: 800; text-transform: uppercase; color: #777; }
-
-        .experience-card { border-bottom: 1px solid #1a1a1a; padding: 30px 0; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-        .exp-title { font-family: 'Syncopate'; font-size: 0.9rem; color: #fff; }
-        .exp-date { color: var(--gold-text); font-size: 11px; font-weight: 800; }
-        .exp-company { font-size: 11px; color: #555; text-transform: uppercase; margin-bottom: 12px; display: block; }
-
-        .gold-btn { 
-            background: var(--gold-glossy); background-size: 200% auto; animation: goldFlow 3s linear infinite;
-            color: #000; border: none; padding: 18px 45px; font-weight: 900; cursor: pointer; 
-            text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-top: 30px;
+        .logo { 
+            font-family: 'Syncopate', sans-serif; 
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 1.1rem; letter-spacing: 3px; cursor: pointer;
         }
 
-        footer { text-align: center; padding: 60px 0; color: #444; font-size: 10px; font-weight: 800; letter-spacing: 3px; }
+        nav a { 
+            color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; cursor: pointer;
+        }
+
+        .page { display: none; padding: 80px 8%; min-height: 90vh; position: relative; z-index: 1; }
+        .page.active { display: block; animation: fadeIn 0.8s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .hero { text-align: center; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { 
+            font-family: 'Syncopate'; font-size: clamp(1.5rem, 6vw, 3.5rem); 
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; line-height: 1.2;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+        .card { background: #0a0a0a; padding: 40px; border-left: 3px solid var(--gold-text); }
+        .card h2 { font-family: 'Syncopate'; font-size: 0.9rem; color: var(--gold-text); margin-bottom: 15px; }
+        .card p { color: #aaa; font-size: 14px; line-height: 1.8; }
+
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tag { background: #111; padding: 10px 20px; font-size: 10px; font-weight: 800; border: 1px solid #222; color: #777; text-transform: uppercase; }
+
+        .exp-row { border-bottom: 1px solid #1a1a1a; padding: 30px 0; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .exp-title { font-family: 'Syncopate'; font-size: 0.85rem; }
+        .exp-date { color: var(--gold-text); font-size: 11px; font-weight: 800; }
+        .company { color: #555; font-size: 11px; text-transform: uppercase; margin-top: 5px; display: block; }
+
+        .btn { 
+            background: var(--gold); padding: 18px 40px; color: #000; font-weight: 900; 
+            text-transform: uppercase; font-size: 11px; border: none; cursor: pointer; margin-top: 30px;
+        }
+
+        footer { text-align: center; padding: 50px 0; color: #333; font-size: 10px; letter-spacing: 2px; }
 
         @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <canvas id="sparks-canvas"></canvas>
+    <canvas id="bg-canvas"></canvas>
 
     <header>
-        <div class="logo-area">
-            <div onclick="showPage('home')" class="logo">YUVRAJ SINGH</div>
-            <span class="powered-by">Certified Performance Coach</span>
-        </div>
+        <div class="logo" onclick="showPage('bio')">YUVRAJ SINGH</div>
         <nav>
-            <a onclick="showPage('home')">Bio</a>
+            <a onclick="showPage('bio')">Bio</a>
             <a onclick="showPage('expertise')">Expertise</a>
             <a onclick="showPage('career')">Career</a>
             <a onclick="showPage('contact')">Connect</a>
         </nav>
     </header>
 
-    <div id="home" class="page active">
+    <div id="bio" class="page active">
         <section class="hero">
-            <p style="color: #666; letter-spacing: 4px; font-size: 11px; margin-bottom: 15px;">ELITE PERFORMANCE ARCHITECT</p>
+            <p style="color: #555; letter-spacing: 4px; font-size: 10px; margin-bottom: 10px;">ELITE PERFORMANCE ARCHITECT</p>
             <h1>PRECISION COACHING.<br>ELITE RESULTS.</h1>
-            <p style="max-width: 650px; color: #888; line-height: 1.8; font-size: 14px;">
-                Certified trainer with a proven record in strength coaching. [span_0](start_span)Delivering elite results through science-backed fitness architecture[span_0](end_span).
+            <p style="max-width: 600px; color: #888; line-height: 1.8; font-size: 14px;">
+                Dynamic Certified Personal Trainer with a proven track record. Excelling in client coaching and relationship building through science-backed fitness architecture.
             </p>
-            <button class="gold-btn" onclick="showPage('expertise')">View Expertise</button>
+            <button class="btn" onclick="showPage('expertise')">Explore Expertise</button>
         </section>
         <div class="grid-2">
-            <div class="glass-box">
-                <h2>Technical Logic</h2>
-                [span_1](start_span)<p>Applying mechanical engineering principles to human movement for maximum efficiency[span_1](end_span).</p>
+            <div class="card">
+                <h2>Technical Foundation</h2>
+                <p>Diploma in Mechanical Engineering from MIPS Barmer. Applying structural logic to human movement.</p>
             </div>
-            <div class="glass-box">
-                <h2>Elite Commitment</h2>
-                [span_2](start_span)[span_3](start_span)<p>Ensuring absolute safety and effectiveness for diverse client populations[span_2](end_span)[span_3](end_span).</p>
+            <div class="card">
+                <h2>The Commitment</h2>
+                <p>Ensuring absolute safety and effectiveness for diverse populations, including seniors and injury recovery.</p>
             </div>
         </div>
     </div>
 
     <div id="expertise" class="page">
-        <h1 style="font-family: 'Syncopate'; background: var(--gold-glossy); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; font-size: 1.3rem;">CORE COMPETENCIES</h1>
+        <h1 style="font-size: 1.5rem; margin-bottom: 30px;">CORE COMPETENCIES</h1>
         <div class="grid-2">
-            <div class="glass-box">
-                <h2>Strength & Conditioning</h2>
-                [span_4](start_span)[span_5](start_span)[span_6](start_span)<p>Expert in personalized plans that improve fitness levels and client retention[span_4](end_span)[span_5](end_span)[span_6](end_span).</p>
+            <div class="card">
+                <h2>Strength Training</h2>
+                <p>Expert in personalized resistance plans that drive results and enhance client retention.</p>
             </div>
-            <div class="glass-box">
+            <div class="card">
                 <h2>Specialized Routines</h2>
-                [span_7](start_span)[span_8](start_span)<p>Adapting programs for seniors and injury recovery with safety-first objectives[span_7](end_span)[span_8](end_span).</p>
+                <p>Adapting workout routines for special populations ensuring safety while maintaining challenge.</p>
             </div>
         </div>
-        <div class="tag-grid">
-            <div class="tag-item">Strength Training</div>
-            <div class="tag-item">Client Coaching</div>
-            <div class="tag-item">Activity Planning</div>
-            <div class="tag-item">Service Marketing</div>
-            <div class="tag-item">Leadership</div>
-            <div class="tag-item">First Aid & CPR</div>
+        <div class="tag-container">
+            <div class="tag">Fitness Instruction</div>
+            <div class="tag">Activity Planning</div>
+            <div class="tag">Service Marketing</div>
+            <div class="tag">Leadership</div>
+            <div class="tag">First Aid & CPR</div>
         </div>
     </div>
 
     <div id="career" class="page">
-        <h1 style="font-family: 'Syncopate'; color: #fff; margin-bottom: 40px; font-size: 1.3rem;">PROFESSIONAL TIMELINE</h1>
+        <h1 style="font-size: 1.5rem; margin-bottom: 30px;">WORK HISTORY</h1>
         
-        <div class="experience-card">
+        <div class="exp-row">
             <div class="exp-header">
                 <span class="exp-title">Personal Trainer</span>
-                <span class="exp-date">AUG 2024 - APR 2025</span>
+                <span class="exp-date">2024 - 2025</span>
             </div>
-            <span class="exp-company">Evolution Fitness Gym | Pune</span>
-            <p style="color: #888; font-size: 13px; line-height: 1.6;">
-                [span_9](start_span)Developed personalized workout plans and monitored progress to enhance fitness[span_9](end_span). [span_10](start_span)Educated clients on proper techniques to reduce injury risk[span_10](end_span).
-            </p>
+            <span class="company">Evolution Fitness Gym | Pune</span>
+            <p style="color: #777; font-size: 14px; margin-top: 10px;">Developed personalized plans and improved fitness levels through progress monitoring.</p>
         </div>
 
-        <div class="experience-card">
-            <div class="exp-header">
-                <span class="exp-title">Sales & Gym Management</span>
-                <span class="exp-date">JAN 2014 - APR 2025</span>
-            </div>
-            <span class="exp-company">Evolution Fitness & Gitai Gym</span>
-            <p style="color: #888; font-size: 13px; line-height: 1.6;">
-                [span_11](start_span)[span_12](start_span)Resolved operational problems and improved service with high personal responsibility[span_11](end_span)[span_12](end_span).
-            </p>
-        </div>
-
-        <div class="experience-card">
+        <div class="exp-row">
             <div class="exp-header">
                 <span class="exp-title">Sales Manager</span>
-                <span class="exp-date">MAR 2020 - JAN 2023</span>
+                <span class="exp-date">2020 - 2023</span>
             </div>
-            <span class="exp-company">KK Developer | Pune</span>
-            <p style="color: #888; font-size: 13px; line-height: 1.6;">
-                [span_13](start_span)[span_14](start_span)Implemented sales strategies and built long-lasting client relationships[span_13](end_span)[span_14](end_span).
-            </p>
+            <span class="company">KK Developer | Pune</span>
+            <p style="color: #777; font-size: 14px; margin-top: 10px;">Increased sales revenue through effective strategies and long-term client relations.</p>
+        </div>
+
+        <div class="exp-row">
+            <div class="exp-header">
+                <span class="exp-title">Personal Trainer</span>
+                <span class="exp-date">2014 - 2024</span>
+            </div>
+            <span class="company">R G Fitness Club | Pune</span>
+            <p style="color: #777; font-size: 14px; margin-top: 10px;">Motivated clients and adapted routines for special populations and recovery.</p>
         </div>
     </div>
 
     <div id="contact" class="page">
         <div class="hero">
-            <h1 style="font-size: 1.8rem;">SECURE CONNECTION</h1>
-            [span_15](start_span)<p style="color: var(--gold-text); font-weight: 800; font-size: 1.1rem; margin-top: 10px;">uviirathore5250@gmail.com[span_15](end_span)</p>
-            <p style="color: #555; margin-top: 5px; font-size: 13px;">PUNE, IN | [span_16](start_span)7387075250[span_16](end_span)</p>
+            <h1>GET IN TOUCH.</h1>
+            <p style="color: var(--gold-text); font-weight: 800; font-size: 1.2rem;">uviirathore5250@gmail.com</p>
+            <p style="color: #444; margin-top: 10px; font-size: 12px; letter-spacing: 2px;">PUNE, INDIA | 7387075250</p>
         </div>
     </div>
 
-    [span_17](start_span)<footer>YUVRAJ SINGH[span_17](end_span) © 2026</footer>
+    <footer>YUVRAJ SINGH PORTFOLIO © 2026</footer>
 
     <script>
-        function showPage(pageId) {
+        function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        const canvas = document.getElementById('sparks-canvas');
+        const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-
-        function resize() {
+        function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            for(let i=0; i<80; i++) particles.push({
+                x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+                s: Math.random()*1, vx: Math.random()*0.2-0.1, vy: Math.random()*0.2-0.1
+            });
         }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor() { this.init(); }
-            init() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.2;
-                this.speedY = Math.random() * 0.2 - 0.1;
-                this.speedX = Math.random() * 0.2 - 0.1;
-                this.opacity = Math.random() * 0.5;
-            }
-            update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 245, 180, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = "#fff";
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0) p.x=canvas.width; if(p.y<0) p.y=canvas.height;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+            });
+            requestAnimationFrame(draw);
         }
-
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        animate();
+        init(); draw();
     </script>
 </body>
 </html>
