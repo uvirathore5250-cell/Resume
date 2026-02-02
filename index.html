@@ -8,33 +8,31 @@
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;500;800&display=swap');
 
         :root {
-            --gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             --gold-text: #e1b382;
-            --black: #050505;
+            --bg-color: #050505;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            background-color: var(--black); 
+            background-color: var(--bg-color); 
             color: #ffffff; 
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.5; pointer-events: none; }
-
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 6%; background: rgba(0,0,0,0.9);
+            padding: 20px 6%; background: rgba(0,0,0,0.95);
             border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         .logo { 
             font-family: 'Syncopate', sans-serif; 
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-size: 1.1rem; letter-spacing: 3px; cursor: pointer;
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 1.2rem; letter-spacing: 4px; cursor: pointer;
         }
 
         nav a { 
@@ -42,168 +40,117 @@
             text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; cursor: pointer;
         }
 
-        .page { display: none; padding: 80px 8%; min-height: 90vh; position: relative; z-index: 1; }
-        .page.active { display: block; animation: fadeIn 0.8s ease; }
+        .page { display: none; padding: 60px 8%; min-height: 90vh; }
+        .page.active { display: block; animation: fadeIn 0.6s ease-out; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .hero { text-align: center; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero { text-align: center; padding: 80px 0; }
         .hero h1 { 
-            font-family: 'Syncopate'; font-size: clamp(1.5rem, 6vw, 3.5rem); 
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 20px; line-height: 1.2;
+            font-family: 'Syncopate'; font-size: clamp(1.8rem, 6vw, 3.5rem); 
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
         }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .card { background: #0a0a0a; padding: 40px; border-left: 3px solid var(--gold-text); }
-        .card h2 { font-family: 'Syncopate'; font-size: 0.9rem; color: var(--gold-text); margin-bottom: 15px; }
-        .card p { color: #aaa; font-size: 14px; line-height: 1.8; }
+        .content-box { background: #0a0a0a; padding: 40px; border-left: 3px solid var(--gold-text); margin-bottom: 30px; }
+        .content-box h2 { font-family: 'Syncopate'; color: var(--gold-text); font-size: 1rem; margin-bottom: 15px; }
+        .content-box p { color: #aaa; font-size: 14px; line-height: 1.8; }
 
-        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .tag { background: #111; padding: 10px 20px; font-size: 10px; font-weight: 800; border: 1px solid #222; color: #777; text-transform: uppercase; }
-
-        .exp-row { border-bottom: 1px solid #1a1a1a; padding: 30px 0; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .exp-title { font-family: 'Syncopate'; font-size: 0.85rem; }
-        .exp-date { color: var(--gold-text); font-size: 11px; font-weight: 800; }
-        .company { color: #555; font-size: 11px; text-transform: uppercase; margin-top: 5px; display: block; }
+        .exp-item { border-bottom: 1px solid #1a1a1a; padding: 25px 0; }
+        .exp-header { display: flex; justify-content: space-between; font-family: 'Syncopate'; font-size: 0.8rem; }
+        .exp-date { color: var(--gold-text); }
+        .company { color: #666; font-size: 11px; text-transform: uppercase; margin: 5px 0 15px; display: block; }
 
         .btn { 
-            background: var(--gold); padding: 18px 40px; color: #000; font-weight: 900; 
-            text-transform: uppercase; font-size: 11px; border: none; cursor: pointer; margin-top: 30px;
+            background: var(--gold-gradient); padding: 15px 35px; color: #000; font-weight: 900; 
+            text-transform: uppercase; font-size: 11px; border: none; cursor: pointer; margin-top: 20px;
         }
 
-        footer { text-align: center; padding: 50px 0; color: #333; font-size: 10px; letter-spacing: 2px; }
-
-        @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
+        footer { text-align: center; padding: 40px 0; color: #444; font-size: 10px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <canvas id="bg-canvas"></canvas>
-
     <header>
-        <div class="logo" onclick="showPage('bio')">YUVRAJ SINGH</div>
+        <div class="logo" onclick="showPage('home')">YUVRAJ SINGH</div>
         <nav>
-            <a onclick="showPage('bio')">Bio</a>
+            <a onclick="showPage('home')">Bio</a>
             <a onclick="showPage('expertise')">Expertise</a>
             <a onclick="showPage('career')">Career</a>
             <a onclick="showPage('contact')">Connect</a>
         </nav>
     </header>
 
-    <div id="bio" class="page active">
+    <div id="home" class="page active">
         <section class="hero">
-            <p style="color: #555; letter-spacing: 4px; font-size: 10px; margin-bottom: 10px;">ELITE PERFORMANCE ARCHITECT</p>
+            <h1 style="font-size: 12px; color: #666; letter-spacing: 5px; margin-bottom: 10px; background: none; -webkit-text-fill-color: #666;">CERTIFIED FITNESS TRAINER</h1>
             <h1>PRECISION COACHING.<br>ELITE RESULTS.</h1>
-            <p style="max-width: 600px; color: #888; line-height: 1.8; font-size: 14px;">
-                Dynamic Certified Personal Trainer with a proven track record. Excelling in client coaching and relationship building through science-backed fitness architecture.
+            <p style="max-width: 600px; margin: 0 auto; color: #888; font-size: 14px; line-height: 1.8;">
+                Dynamic professional with a proven track record at Evolution Fitness Gym. Expert in strength training and personalized fitness architecture.
             </p>
-            <button class="btn" onclick="showPage('expertise')">Explore Expertise</button>
+            <button class="btn" onclick="showPage('expertise')">View Expertise</button>
         </section>
-        <div class="grid-2">
-            <div class="card">
-                <h2>Technical Foundation</h2>
-                <p>Diploma in Mechanical Engineering from MIPS Barmer. Applying structural logic to human movement.</p>
-            </div>
-            <div class="card">
-                <h2>The Commitment</h2>
-                <p>Ensuring absolute safety and effectiveness for diverse populations, including seniors and injury recovery.</p>
-            </div>
+        <div class="content-box">
+            <h2>Technical Foundation</h2>
+            <p>Diploma in Mechanical Engineering from MIPS Barmer. I apply structural precision and biomechanical logic to every fitness program I design.</p>
         </div>
     </div>
 
     <div id="expertise" class="page">
-        <h1 style="font-size: 1.5rem; margin-bottom: 30px;">CORE COMPETENCIES</h1>
-        <div class="grid-2">
-            <div class="card">
-                <h2>Strength Training</h2>
-                <p>Expert in personalized resistance plans that drive results and enhance client retention.</p>
-            </div>
-            <div class="card">
-                <h2>Specialized Routines</h2>
-                <p>Adapting workout routines for special populations ensuring safety while maintaining challenge.</p>
-            </div>
+        <h1 style="font-family: 'Syncopate'; font-size: 1.5rem; margin-bottom: 40px;">CORE COMPETENCIES</h1>
+        <div class="content-box">
+            <h2>Strength & Conditioning</h2>
+            <p>Developing science-backed resistance programs that focus on efficiency and sustainable growth.</p>
         </div>
-        <div class="tag-container">
-            <div class="tag">Fitness Instruction</div>
-            <div class="tag">Activity Planning</div>
-            <div class="tag">Service Marketing</div>
-            <div class="tag">Leadership</div>
-            <div class="tag">First Aid & CPR</div>
+        <div class="content-box">
+            <h2>Specialized Programming</h2>
+            <p>Adapting workout routines for seniors and injury recovery cases, ensuring safety while maintaining progress.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">CLIENT COACHING</span>
+            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">LEADERSHIP</span>
+            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">FIRST AID & CPR</span>
         </div>
     </div>
 
     <div id="career" class="page">
-        <h1 style="font-size: 1.5rem; margin-bottom: 30px;">WORK HISTORY</h1>
+        <h1 style="font-family: 'Syncopate'; font-size: 1.5rem; margin-bottom: 40px;">WORK HISTORY</h1>
         
-        <div class="exp-row">
-            <div class="exp-header">
-                <span class="exp-title">Personal Trainer</span>
-                <span class="exp-date">2024 - 2025</span>
-            </div>
+        <div class="exp-item">
+            <div class="exp-header"><span>PERSONAL TRAINER</span><span class="exp-date">2024 - 2025</span></div>
             <span class="company">Evolution Fitness Gym | Pune</span>
-            <p style="color: #777; font-size: 14px; margin-top: 10px;">Developed personalized plans and improved fitness levels through progress monitoring.</p>
+            <p style="color: #888; font-size: 14px;">Improved client fitness levels by developing personalized workout plans and monitoring progress.</p>
         </div>
 
-        <div class="exp-row">
-            <div class="exp-header">
-                <span class="exp-title">Sales Manager</span>
-                <span class="exp-date">2020 - 2023</span>
-            </div>
+        <div class="exp-item">
+            <div class="exp-header"><span>SALES MANAGER</span><span class="exp-date">2020 - 2023</span></div>
             <span class="company">KK Developer | Pune</span>
-            <p style="color: #777; font-size: 14px; margin-top: 10px;">Increased sales revenue through effective strategies and long-term client relations.</p>
+            <p style="color: #888; font-size: 14px;">Increased sales revenue by implementing effective strategies and building long-lasting client relationships.</p>
         </div>
 
-        <div class="exp-row">
-            <div class="exp-header">
-                <span class="exp-title">Personal Trainer</span>
-                <span class="exp-date">2014 - 2024</span>
-            </div>
+        <div class="exp-item">
+            <div class="exp-header"><span>FITNESS COACH</span><span class="exp-date">2014 - 2024</span></div>
             <span class="company">R G Fitness Club | Pune</span>
-            <p style="color: #777; font-size: 14px; margin-top: 10px;">Motivated clients and adapted routines for special populations and recovery.</p>
+            <p style="color: #888; font-size: 14px;">Motivated clients and adapted routines for special populations, ensuring safety and results.</p>
         </div>
     </div>
 
     <div id="contact" class="page">
-        <div class="hero">
-            <h1>GET IN TOUCH.</h1>
-            <p style="color: var(--gold-text); font-weight: 800; font-size: 1.2rem;">uviirathore5250@gmail.com</p>
-            <p style="color: #444; margin-top: 10px; font-size: 12px; letter-spacing: 2px;">PUNE, INDIA | 7387075250</p>
-        </div>
+        <section class="hero">
+            <h1>LET'S CONNECT.</h1>
+            <p style="color: var(--gold-text); font-weight: 800; font-size: 1.2rem; margin-top: 20px;">uviirathore5250@gmail.com</p>
+            <p style="color: #666; font-size: 12px; margin-top: 10px;">PUNE, INDIA | 7387075250</p>
+        </section>
     </div>
 
-    <footer>YUVRAJ SINGH PORTFOLIO © 2026</footer>
+    <footer>YUVRAJ SINGH | PORTFOLIO 2026</footer>
 
     <script>
-        function showPage(id) {
+        function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            document.getElementById(pageId).classList.add('active');
             window.scrollTo(0,0);
         }
-
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            for(let i=0; i<80; i++) particles.push({
-                x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-                s: Math.random()*1, vx: Math.random()*0.2-0.1, vy: Math.random()*0.2-0.1
-            });
-        }
-        function draw() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle = "#fff";
-            particles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
-                if(p.x<0) p.x=canvas.width; if(p.y<0) p.y=canvas.height;
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
-            });
-            requestAnimationFrame(draw);
-        }
-        init(); draw();
     </script>
 </body>
 </html>
