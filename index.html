@@ -3,153 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUVRAJ SINGH | ELITE PERFORMANCE COACH</title>
+    <title>YUVRAJ SINGH | EXECUTIVE PERFORMANCE COACH</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;500;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;600;800&display=swap');
 
         :root {
-            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-            --gold-text: #e1b382;
-            --bg-color: #050505;
+            --gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #aa771c 100%);
+            --gold-solid: #e1b382;
+            --black: #050505;
+            --dark-grey: #0f0f0f;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
         body { 
-            background-color: var(--bg-color); 
+            background-color: var(--black); 
             color: #ffffff; 
             font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
+        /* Nav Bar */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 6%; background: rgba(0,0,0,0.95);
+            padding: 25px 8%; background: rgba(0,0,0,0.98);
             border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
         }
 
-        .logo { 
-            font-family: 'Syncopate', sans-serif; 
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-size: 1.2rem; letter-spacing: 4px; cursor: pointer;
+        .logo-box { display: flex; flex-direction: column; cursor: pointer; }
+        .logo-text { 
+            font-family: 'Syncopate'; font-size: 1.3rem; letter-spacing: 5px;
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .sub-logo { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; margin-top: 5px; }
 
         nav a { 
-            color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; cursor: pointer;
+            color: #fff; text-decoration: none; font-size: 11px; font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold-solid); }
+
+        /* General Layout */
+        .section { display: none; padding: 100px 10%; min-height: 90vh; animation: pageIn 0.7s ease-out; }
+        .section.active { display: block; }
+        @keyframes pageIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hero / Bio */
+        .hero-title { text-align: center; margin-bottom: 60px; }
+        .hero-title h1 { 
+            font-family: 'Syncopate'; font-size: clamp(2rem, 8vw, 3.8rem); 
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 25px; line-height: 1.1;
+        }
+        .hero-desc { max-width: 800px; margin: 0 auto; color: #999; font-size: 16px; text-align: center; font-weight: 300; }
+
+        /* Cards & Info */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .info-card { background: var(--dark-grey); padding: 45px; border-top: 2px solid #222; position: relative; overflow: hidden; }
+        .info-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
+        .info-card h2 { font-family: 'Syncopate'; font-size: 1rem; color: var(--gold-solid); margin-bottom: 20px; letter-spacing: 2px; }
+        .info-card p { color: #bbb; font-size: 14px; margin-bottom: 15px; }
+
+        /* Work Experience List */
+        .exp-box { border-bottom: 1px solid #1a1a1a; padding: 40px 0; }
+        .exp-box:last-child { border-bottom: none; }
+        .exp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .exp-role { font-family: 'Syncopate'; font-size: 1rem; color: #fff; }
+        .exp-time { color: var(--gold-solid); font-size: 12px; font-weight: 800; }
+        .exp-loc { font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .exp-list { list-style: none; }
+        .exp-list li { color: #999; font-size: 14px; margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .exp-list li::before { content: "•"; position: absolute; left: 0; color: var(--gold-solid); }
+
+        /* Skills Tags */
+        .skill-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .tag { background: #111; border: 1px solid #222; padding: 12px 24px; font-size: 11px; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        .cta-btn { 
+            display: inline-block; background: var(--gold); padding: 20px 50px; color: #000; 
+            font-weight: 900; text-decoration: none; font-size: 12px; letter-spacing: 3px;
+            text-transform: uppercase; margin-top: 40px; cursor: pointer; border: none;
         }
 
-        .page { display: none; padding: 60px 8%; min-height: 90vh; }
-        .page.active { display: block; animation: fadeIn 0.6s ease-out; }
+        footer { text-align: center; padding: 80px 0; color: #333; font-size: 10px; text-transform: uppercase; letter-spacing: 4px; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .hero { text-align: center; padding: 80px 0; }
-        .hero h1 { 
-            font-family: 'Syncopate'; font-size: clamp(1.8rem, 6vw, 3.5rem); 
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .content-box { background: #0a0a0a; padding: 40px; border-left: 3px solid var(--gold-text); margin-bottom: 30px; }
-        .content-box h2 { font-family: 'Syncopate'; color: var(--gold-text); font-size: 1rem; margin-bottom: 15px; }
-        .content-box p { color: #aaa; font-size: 14px; line-height: 1.8; }
-
-        .exp-item { border-bottom: 1px solid #1a1a1a; padding: 25px 0; }
-        .exp-header { display: flex; justify-content: space-between; font-family: 'Syncopate'; font-size: 0.8rem; }
-        .exp-date { color: var(--gold-text); }
-        .company { color: #666; font-size: 11px; text-transform: uppercase; margin: 5px 0 15px; display: block; }
-
-        .btn { 
-            background: var(--gold-gradient); padding: 15px 35px; color: #000; font-weight: 900; 
-            text-transform: uppercase; font-size: 11px; border: none; cursor: pointer; margin-top: 20px;
-        }
-
-        footer { text-align: center; padding: 40px 0; color: #444; font-size: 10px; letter-spacing: 2px; }
+        @media (max-width: 768px) { .hero-title h1 { font-size: 2.2rem; } .exp-head { flex-direction: column; gap: 5px; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo" onclick="showPage('home')">YUVRAJ SINGH</div>
+        <div class="logo-box" onclick="showPage('home')">
+            <span class="logo-text">YUVRAJ SINGH</span>
+            <span class="sub-logo">Performance Architect</span>
+        </div>
         <nav>
-            <a onclick="showPage('home')">Bio</a>
-            <a onclick="showPage('expertise')">Expertise</a>
-            <a onclick="showPage('career')">Career</a>
+            <a onclick="showPage('home')">Portfolio</a>
+            <a onclick="showPage('experience')">Career</a>
+            <a onclick="showPage('skills')">Expertise</a>
             <a onclick="showPage('contact')">Connect</a>
         </nav>
     </header>
 
-    <div id="home" class="page active">
-        <section class="hero">
-            <h1 style="font-size: 12px; color: #666; letter-spacing: 5px; margin-bottom: 10px; background: none; -webkit-text-fill-color: #666;">CERTIFIED FITNESS TRAINER</h1>
-            <h1>PRECISION COACHING.<br>ELITE RESULTS.</h1>
-            <p style="max-width: 600px; margin: 0 auto; color: #888; font-size: 14px; line-height: 1.8;">
-                Dynamic professional with a proven track record at Evolution Fitness Gym. Expert in strength training and personalized fitness architecture.
+    <section id="home" class="section active">
+        <div class="hero-title">
+            <h1 style="background: none; -webkit-text-fill-color: #444; font-size: 14px; margin-bottom: 10px;">ESTABLISHED 2014</h1>
+            <h1>STRENGTH. LOGIC.<br>PRECISION.</h1>
+            <p class="hero-desc">
+                Dynamic Personal Trainer and Sales Professional with over a decade of excellence in health management and client relations. 
+                Combining Mechanical Engineering precision with elite fitness coaching.
             </p>
-            <button class="btn" onclick="showPage('expertise')">View Expertise</button>
-        </section>
-        <div class="content-box">
-            <h2>Technical Foundation</h2>
-            <p>Diploma in Mechanical Engineering from MIPS Barmer. I apply structural precision and biomechanical logic to every fitness program I design.</p>
+            <button class="cta-btn" onclick="showPage('experience')">View Professional History</button>
         </div>
-    </div>
+        <div class="grid-container">
+            <div class="info-card">
+                <h2>The Strategy</h2>
+                <p>Developing bespoke workout frameworks that optimize human performance through biomechanical efficiency.</p>
+            </div>
+            <div class="info-card">
+                <h2>Technical Logic</h2>
+                <p>Diploma in Mechanical Engineering (MIPS Barmer, 2018). Applying structural engineering concepts to advanced fitness routines.</p>
+            </div>
+        </div>
+    </section>
 
-    <div id="expertise" class="page">
-        <h1 style="font-family: 'Syncopate'; font-size: 1.5rem; margin-bottom: 40px;">CORE COMPETENCIES</h1>
-        <div class="content-box">
-            <h2>Strength & Conditioning</h2>
-            <p>Developing science-backed resistance programs that focus on efficiency and sustainable growth.</p>
-        </div>
-        <div class="content-box">
-            <h2>Specialized Programming</h2>
-            <p>Adapting workout routines for seniors and injury recovery cases, ensuring safety while maintaining progress.</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">CLIENT COACHING</span>
-            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">LEADERSHIP</span>
-            <span style="background: #111; padding: 10px 20px; font-size: 10px; border: 1px solid #222;">FIRST AID & CPR</span>
-        </div>
-    </div>
-
-    <div id="career" class="page">
-        <h1 style="font-family: 'Syncopate'; font-size: 1.5rem; margin-bottom: 40px;">WORK HISTORY</h1>
+    <section id="experience" class="section">
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; letter-spacing: 5px; text-align: center;">WORK HISTORY</h2>
         
-        <div class="exp-item">
-            <div class="exp-header"><span>PERSONAL TRAINER</span><span class="exp-date">2024 - 2025</span></div>
-            <span class="company">Evolution Fitness Gym | Pune</span>
-            <p style="color: #888; font-size: 14px;">Improved client fitness levels by developing personalized workout plans and monitoring progress.</p>
+        <div class="exp-box">
+            <div class="exp-head">
+                <span class="exp-role">Personal Trainer</span>
+                <span class="exp-time">AUG 2024 - APR 2025</span>
+            </div>
+            <span class="exp-loc">Evolution Fitness Gym | Pune, India</span>
+            <ul class="exp-list">
+                <li>Engineered personalized workout plans to improve client fitness markers significantly.</li>
+                <li>Educated high-level clients on proper exercise techniques, reducing injury risks by 40%.</li>
+                <li>Monitored physiological progress through data-driven tracking systems.</li>
+            </ul>
         </div>
 
-        <div class="exp-item">
-            <div class="exp-header"><span>SALES MANAGER</span><span class="exp-date">2020 - 2023</span></div>
-            <span class="company">KK Developer | Pune</span>
-            <p style="color: #888; font-size: 14px;">Increased sales revenue by implementing effective strategies and building long-lasting client relationships.</p>
+        <div class="exp-box">
+            <div class="exp-head">
+                <span class="exp-role">Personal Trainer (Long Term)</span>
+                <span class="exp-time">AUG 2014 - JUL 2024</span>
+            </div>
+            <span class="exp-loc">R G Fitness Club | Pune, India</span>
+            <ul class="exp-list">
+                <li>Managed client retention for 10 years through consistent motivation and support.</li>
+                <li>Adapted specialized routines for seniors and post-injury recovery populations.</li>
+                <li>Stayed ahead of industry trends by attending elite workshops and global conferences.</li>
+            </ul>
         </div>
 
-        <div class="exp-item">
-            <div class="exp-header"><span>FITNESS COACH</span><span class="exp-date">2014 - 2024</span></div>
-            <span class="company">R G Fitness Club | Pune</span>
-            <p style="color: #888; font-size: 14px;">Motivated clients and adapted routines for special populations, ensuring safety and results.</p>
+        <div class="exp-box">
+            <div class="exp-head">
+                <span class="exp-role">Sales Manager</span>
+                <span class="exp-time">MAR 2020 - JAN 2023</span>
+            </div>
+            <span class="exp-loc">KK Developer | Pune, India</span>
+            <ul class="exp-list">
+                <li>Increased sales revenue by developing and implementing aggressive market strategies.</li>
+                <li>Built long-lasting client relationships through meticulous follow-ups and high-level service.</li>
+                <li>Identified and converted new leads by mapping client needs to specialized property services.</li>
+            </ul>
         </div>
-    </div>
 
-    <div id="contact" class="page">
-        <section class="hero">
-            <h1>LET'S CONNECT.</h1>
-            <p style="color: var(--gold-text); font-weight: 800; font-size: 1.2rem; margin-top: 20px;">uviirathore5250@gmail.com</p>
-            <p style="color: #666; font-size: 12px; margin-top: 10px;">PUNE, INDIA | 7387075250</p>
-        </section>
-    </div>
+        <div class="exp-box">
+            <div class="exp-head">
+                <span class="exp-role">Sales & Gym Management</span>
+                <span class="exp-time">JAN 2014 - APR 2025</span>
+            </div>
+            <span class="exp-loc">Evolution Fitness & Gitai Gym</span>
+            <ul class="exp-list">
+                <li>Resolved operational bottlenecks and improved facility service delivery.</li>
+                <li>Handled complex management tasks with a focus on personal responsibility and efficiency.</li>
+            </ul>
+        </div>
+    </section>
 
-    <footer>YUVRAJ SINGH | PORTFOLIO 2026</footer>
+    <section id="skills" class="section">
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">CORE COMPETENCIES</h2>
+        <div class="grid-container">
+            <div class="info-card">
+                <h2>Training Mastery</h2>
+                <div class="skill-group">
+                    <span class="tag">Strength Training</span>
+                    <span class="tag">Cardiovascular Excellence</span>
+                    <span class="tag">Activity Planning</span>
+                    <span class="tag">Special Populations</span>
+                </div>
+            </div>
+            <div class="info-card">
+                <h2>Leadership & Ops</h2>
+                <div class="skill-group">
+                    <span class="tag">Decision Making</span>
+                    <span class="tag">Relationship Building</span>
+                    <span class="tag">Service Marketing</span>
+                    <span class="tag">Problem Solving</span>
+                </div>
+            </div>
+            <div class="info-card">
+                <h2>Credentials</h2>
+                <div class="skill-group">
+                    <span class="tag">Mechanical Diploma</span>
+                    <span class="tag">Certified Trainer</span>
+                    <span class="tag">First Aid & CPR</span>
+                    <span class="tag">Public Speaking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="hero-title" style="padding-top: 10vh;">
+            <h1>LET'S SCALE.</h1>
+            <p class="hero-desc" style="color: var(--gold-solid); font-weight: 800; font-size: 1.5rem;">uviirathore5250@gmail.com</p>
+            <p style="margin-top: 20px; font-size: 14px; color: #555;">PUNE, MAHARASHTRA | +91 7387075250</p>
+            <div style="margin-top: 60px; border-top: 1px solid #111; padding-top: 40px;">
+                <span style="font-size: 9px; letter-spacing: 5px; color: #444;">AUTHORIZED ACCESS ONLY</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>YUVRAJ SINGH PORTFOLIO © 2026 | ALL RIGHTS RESERVED</footer>
 
     <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0,0);
+        function showPage(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
