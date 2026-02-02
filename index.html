@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUVRAJ SINGH | EXECUTIVE PERFORMANCE COACH</title>
+    <title>YUVRAJ SINGH RATHORE | SALES & BUSINESS STRATEGIST</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;600;800&display=swap');
 
@@ -14,7 +14,7 @@
             --dark-grey: #0f0f0f;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             background-color: var(--black); 
             color: #ffffff; 
@@ -23,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Nav Bar */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; background: rgba(0,0,0,0.98);
@@ -40,16 +39,13 @@
 
         nav a { 
             color: #fff; text-decoration: none; font-size: 11px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; cursor: pointer;
         }
-        nav a:hover { color: var(--gold-solid); }
 
-        /* General Layout */
-        .section { display: none; padding: 100px 10%; min-height: 90vh; animation: pageIn 0.7s ease-out; }
+        .section { display: none; padding: 80px 10%; min-height: 90vh; animation: pageIn 0.7s ease-out; }
         .section.active { display: block; }
         @keyframes pageIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero / Bio */
         .hero-title { text-align: center; margin-bottom: 60px; }
         .hero-title h1 { 
             font-family: 'Syncopate'; font-size: clamp(2rem, 8vw, 3.8rem); 
@@ -58,105 +54,62 @@
         }
         .hero-desc { max-width: 800px; margin: 0 auto; color: #999; font-size: 16px; text-align: center; font-weight: 300; }
 
-        /* Cards & Info */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .info-card { background: var(--dark-grey); padding: 45px; border-top: 2px solid #222; position: relative; overflow: hidden; }
+        .info-card { background: var(--dark-grey); padding: 40px; border-top: 2px solid #222; position: relative; }
         .info-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
-        .info-card h2 { font-family: 'Syncopate'; font-size: 1rem; color: var(--gold-solid); margin-bottom: 20px; letter-spacing: 2px; }
-        .info-card p { color: #bbb; font-size: 14px; margin-bottom: 15px; }
+        .info-card h2 { font-family: 'Syncopate'; font-size: 1rem; color: var(--gold-solid); margin-bottom: 20px; }
 
-        /* Work Experience List */
         .exp-box { border-bottom: 1px solid #1a1a1a; padding: 40px 0; }
-        .exp-box:last-child { border-bottom: none; }
         .exp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
         .exp-role { font-family: 'Syncopate'; font-size: 1rem; color: #fff; }
         .exp-time { color: var(--gold-solid); font-size: 12px; font-weight: 800; }
         .exp-loc { font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; display: block; }
         .exp-list { list-style: none; }
         .exp-list li { color: #999; font-size: 14px; margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .exp-list li::before { content: "•"; position: absolute; left: 0; color: var(--gold-solid); }
+        .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--gold-solid); }
 
-        /* Skills Tags */
-        .skill-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-        .tag { background: #111; border: 1px solid #222; padding: 12px 24px; font-size: 11px; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .tag { background: #111; border: 1px solid #222; padding: 10px 20px; font-size: 10px; font-weight: 800; color: #888; text-transform: uppercase; display: inline-block; margin: 5px; }
 
-        .cta-btn { 
-            display: inline-block; background: var(--gold); padding: 20px 50px; color: #000; 
-            font-weight: 900; text-decoration: none; font-size: 12px; letter-spacing: 3px;
-            text-transform: uppercase; margin-top: 40px; cursor: pointer; border: none;
-        }
-
-        footer { text-align: center; padding: 80px 0; color: #333; font-size: 10px; text-transform: uppercase; letter-spacing: 4px; }
-
-        @media (max-width: 768px) { .hero-title h1 { font-size: 2.2rem; } .exp-head { flex-direction: column; gap: 5px; } }
+        footer { text-align: center; padding: 60px 0; color: #333; font-size: 10px; letter-spacing: 4px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo-box" onclick="showPage('home')">
-            <span class="logo-text">YUVRAJ SINGH</span>
-            <span class="sub-logo">Performance Architect</span>
+            <span class="logo-text">YUVRAJ SINGH RATHORE</span>
+            <span class="sub-logo">Sales & Business Development</span>
         </div>
         <nav>
-            <a onclick="showPage('home')">Portfolio</a>
-            <a onclick="showPage('experience')">Career</a>
+            <a onclick="showPage('home')">Executive Bio</a>
+            <a onclick="showPage('experience')">Sales Career</a>
             <a onclick="showPage('skills')">Expertise</a>
-            <a onclick="showPage('contact')">Connect</a>
         </nav>
     </header>
 
     <section id="home" class="section active">
         <div class="hero-title">
-            <h1 style="background: none; -webkit-text-fill-color: #444; font-size: 14px; margin-bottom: 10px;">ESTABLISHED 2014</h1>
-            <h1>STRENGTH. LOGIC.<br>PRECISION.</h1>
+            <h1 style="background: none; -webkit-text-fill-color: #444; font-size: 14px; margin-bottom: 10px;">REVENUE GROWTH SPECIALIST</h1>
+            <h1>YUVRAJ SINGH RATHORE</h1>
             <p class="hero-desc">
-                Dynamic Personal Trainer and Sales Professional with over a decade of excellence in health management and client relations. 
-                Combining Mechanical Engineering precision with elite fitness coaching.
+                High-impact Sales Professional with over 10 years of experience in driving revenue, client acquisition, and high-stakes relationship management. Proven expertise in closing deals and managing gym operations at an executive level.
             </p>
-            <button class="cta-btn" onclick="showPage('experience')">View Professional History</button>
         </div>
         <div class="grid-container">
             <div class="info-card">
-                <h2>The Strategy</h2>
-                <p>Developing bespoke workout frameworks that optimize human performance through biomechanical efficiency.</p>
+                <h2>Sales Philosophy</h2>
+                <p>Translating client needs into high-value solutions. Expertise in lead conversion, CRM management, and aggressive market growth.</p>
             </div>
             <div class="info-card">
-                <h2>Technical Logic</h2>
-                <p>Diploma in Mechanical Engineering (MIPS Barmer, 2018). Applying structural engineering concepts to advanced fitness routines.</p>
+                <h2>Operational Logic</h2>
+                <p>Utilizing Mechanical Engineering precision to streamline business operations and resolve complex organizational bottlenecks.</p>
             </div>
         </div>
     </section>
 
     <section id="experience" class="section">
-        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; letter-spacing: 5px; text-align: center;">WORK HISTORY</h2>
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">PROFESSIONAL EXPERIENCE</h2>
         
-        <div class="exp-box">
-            <div class="exp-head">
-                <span class="exp-role">Personal Trainer</span>
-                <span class="exp-time">AUG 2024 - APR 2025</span>
-            </div>
-            <span class="exp-loc">Evolution Fitness Gym | Pune, India</span>
-            <ul class="exp-list">
-                <li>Engineered personalized workout plans to improve client fitness markers significantly.</li>
-                <li>Educated high-level clients on proper exercise techniques, reducing injury risks by 40%.</li>
-                <li>Monitored physiological progress through data-driven tracking systems.</li>
-            </ul>
-        </div>
-
-        <div class="exp-box">
-            <div class="exp-head">
-                <span class="exp-role">Personal Trainer (Long Term)</span>
-                <span class="exp-time">AUG 2014 - JUL 2024</span>
-            </div>
-            <span class="exp-loc">R G Fitness Club | Pune, India</span>
-            <ul class="exp-list">
-                <li>Managed client retention for 10 years through consistent motivation and support.</li>
-                <li>Adapted specialized routines for seniors and post-injury recovery populations.</li>
-                <li>Stayed ahead of industry trends by attending elite workshops and global conferences.</li>
-            </ul>
-        </div>
-
         <div class="exp-box">
             <div class="exp-head">
                 <span class="exp-role">Sales Manager</span>
@@ -164,9 +117,9 @@
             </div>
             <span class="exp-loc">KK Developer | Pune, India</span>
             <ul class="exp-list">
-                <li>Increased sales revenue by developing and implementing aggressive market strategies.</li>
-                <li>Built long-lasting client relationships through meticulous follow-ups and high-level service.</li>
-                <li>Identified and converted new leads by mapping client needs to specialized property services.</li>
+                <li>Designed and executed sales strategies that significantly increased quarterly revenue.</li>
+                <li>Identified and penetrated new market segments through proactive lead generation.</li>
+                <li>Built and nurtured long-term HNI (High Net-worth Individual) client relationships through consistent follow-ups.</li>
             </ul>
         </div>
 
@@ -177,57 +130,46 @@
             </div>
             <span class="exp-loc">Evolution Fitness & Gitai Gym</span>
             <ul class="exp-list">
-                <li>Resolved operational bottlenecks and improved facility service delivery.</li>
-                <li>Handled complex management tasks with a focus on personal responsibility and efficiency.</li>
+                <li>Headed sales operations, focusing on membership growth and high-ticket personal training packages.</li>
+                <li>Optimized service delivery models to improve facility ROI and operational efficiency.</li>
+                <li>Resolved complex customer relations issues, ensuring 95%+ client satisfaction.</li>
+            </ul>
+        </div>
+
+        <div class="exp-box">
+            <div class="exp-head">
+                <span class="exp-role">Business Development (Client Acquisition)</span>
+                <span class="exp-time">AUG 2014 - JUL 2024</span>
+            </div>
+            <span class="exp-loc">R G Fitness Club | Pune, India</span>
+            <ul class="exp-list">
+                <li>Consistently over-achieved sales targets for personal coaching and nutrition services.</li>
+                <li>Increased client retention rates through strategic communication and personalized service marketing.</li>
             </ul>
         </div>
     </section>
 
     <section id="skills" class="section">
-        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">CORE COMPETENCIES</h2>
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 50px; font-size: 1.5rem; text-align: center;">SALES & STRATEGY</h2>
         <div class="grid-container">
             <div class="info-card">
-                <h2>Training Mastery</h2>
-                <div class="skill-group">
-                    <span class="tag">Strength Training</span>
-                    <span class="tag">Cardiovascular Excellence</span>
-                    <span class="tag">Activity Planning</span>
-                    <span class="tag">Special Populations</span>
-                </div>
+                <h2>Core Sales Skills</h2>
+                <div class="tag">Revenue Growth</div>
+                <div class="tag">Lead Generation</div>
+                <div class="tag">Market Analysis</div>
+                <div class="tag">Negotiation</div>
             </div>
             <div class="info-card">
-                <h2>Leadership & Ops</h2>
-                <div class="skill-group">
-                    <span class="tag">Decision Making</span>
-                    <span class="tag">Relationship Building</span>
-                    <span class="tag">Service Marketing</span>
-                    <span class="tag">Problem Solving</span>
-                </div>
-            </div>
-            <div class="info-card">
-                <h2>Credentials</h2>
-                <div class="skill-group">
-                    <span class="tag">Mechanical Diploma</span>
-                    <span class="tag">Certified Trainer</span>
-                    <span class="tag">First Aid & CPR</span>
-                    <span class="tag">Public Speaking</span>
-                </div>
+                <h2>Leadership</h2>
+                <div class="tag">Decision-Making</div>
+                <div class="tag">Problem-Solving</div>
+                <div class="tag">CRM Mastery</div>
+                <div class="tag">Team Guidance</div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="hero-title" style="padding-top: 10vh;">
-            <h1>LET'S SCALE.</h1>
-            <p class="hero-desc" style="color: var(--gold-solid); font-weight: 800; font-size: 1.5rem;">uviirathore5250@gmail.com</p>
-            <p style="margin-top: 20px; font-size: 14px; color: #555;">PUNE, MAHARASHTRA | +91 7387075250</p>
-            <div style="margin-top: 60px; border-top: 1px solid #111; padding-top: 40px;">
-                <span style="font-size: 9px; letter-spacing: 5px; color: #444;">AUTHORIZED ACCESS ONLY</span>
-            </div>
-        </div>
-    </section>
-
-    <footer>YUVRAJ SINGH PORTFOLIO © 2026 | ALL RIGHTS RESERVED</footer>
+    <footer>YUVRAJ SINGH RATHORE | SALES STRATEGIST © 2026</footer>
 
     <script>
         function showPage(id) {
