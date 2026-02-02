@@ -11,7 +11,6 @@
             --gold-glossy: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             --gold-text: #e1b382;
             --deep-black: #050505;
-            --card-bg: #0a0a0a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,22 +51,21 @@
         
         nav a { 
             color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-left: 20px; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-left: 20px;
         }
-        nav a:hover { color: var(--gold-text); }
 
-        .page { display: none; padding: 80px 8%; min-height: 90vh; position: relative; z-index: 1; animation: fadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .page { display: none; padding: 80px 8%; min-height: 90vh; position: relative; z-index: 1; animation: fadeIn 0.8s ease-out; }
         .page.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes goldFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
-        .hero { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh; }
+        .hero { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 60vh; }
         .hero h1 { 
-            font-family: 'Syncopate', sans-serif; font-size: clamp(1.8rem, 6vw, 3.5rem); 
+            font-family: 'Syncopate', sans-serif; font-size: clamp(1.5rem, 5vw, 3rem); 
             background: var(--gold-glossy); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-size: 200% auto; animation: goldFlow 4s linear infinite;
-            margin-bottom: 20px; line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
@@ -75,32 +73,28 @@
             background: rgba(15,15,15,0.8); padding: 40px; 
             border-left: 3px solid var(--gold-text); 
             backdrop-filter: blur(10px);
-            transition: 0.4s;
         }
-        .glass-box:hover { background: rgba(30,30,30,0.8); transform: translateY(-5px); border-left-color: #fff; }
-        .glass-box h2 { font-family: 'Syncopate'; color: var(--gold-text); font-size: 1rem; margin-bottom: 15px; letter-spacing: 2px; }
+        .glass-box h2 { font-family: 'Syncopate'; color: var(--gold-text); font-size: 1rem; margin-bottom: 15px; }
         .glass-box p { color: #aaa; font-size: 14px; line-height: 1.8; }
 
-        .tag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 30px; }
-        .tag-item { background: #0f0f0f; padding: 20px; text-align: center; border: 1px solid #222; font-size: 10px; font-weight: 800; text-transform: uppercase; color: #888; letter-spacing: 1px; }
+        .tag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 30px; }
+        .tag-item { background: #0f0f0f; padding: 15px; text-align: center; border: 1px solid #222; font-size: 10px; font-weight: 800; text-transform: uppercase; color: #777; }
 
         .experience-card { border-bottom: 1px solid #1a1a1a; padding: 30px 0; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
         .exp-title { font-family: 'Syncopate'; font-size: 0.9rem; color: #fff; }
         .exp-date { color: var(--gold-text); font-size: 11px; font-weight: 800; }
-        .exp-company { font-size: 12px; color: #666; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .exp-company { font-size: 11px; color: #555; text-transform: uppercase; margin-bottom: 12px; display: block; }
 
         .gold-btn { 
             background: var(--gold-glossy); background-size: 200% auto; animation: goldFlow 3s linear infinite;
             color: #000; border: none; padding: 18px 45px; font-weight: 900; cursor: pointer; 
             text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-top: 30px;
-            transition: transform 0.2s;
         }
-        .gold-btn:active { transform: scale(0.95); }
 
-        footer { text-align: center; padding: 60px 0; color: #444; font-size: 10px; font-weight: 800; letter-spacing: 3px; border-top: 1px solid #111; }
+        footer { text-align: center; padding: 60px 0; color: #444; font-size: 10px; font-weight: 800; letter-spacing: 3px; }
 
-        @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } }
+        @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -113,7 +107,7 @@
             <span class="powered-by">Certified Performance Coach</span>
         </div>
         <nav>
-            <a onclick="showPage('home')">Executive Bio</a>
+            <a onclick="showPage('home')">Bio</a>
             <a onclick="showPage('expertise')">Expertise</a>
             <a onclick="showPage('career')">Career</a>
             <a onclick="showPage('contact')">Connect</a>
@@ -122,99 +116,93 @@
 
     <div id="home" class="page active">
         <section class="hero">
-            <p style="color: #888; letter-spacing: 4px; font-size: 12px; margin-bottom: 20px;">TRANSFORMING AMBITION INTO POWER</p>
+            <p style="color: #666; letter-spacing: 4px; font-size: 11px; margin-bottom: 15px;">ELITE PERFORMANCE ARCHITECT</p>
             <h1>PRECISION COACHING.<br>ELITE RESULTS.</h1>
-            <p style="max-width: 700px; color: #aaa; line-height: 2; font-size: 14px;">
-                [span_1](start_span)[span_2](start_span)Dynamic Certified Personal Trainer with a proven track record at Evolution Fitness Gym[span_1](end_span)[span_2](end_span). 
-                [span_3](start_span)Excelling in client coaching and personalized fitness architecture designed for high-stakes results[span_3](end_span).
+            <p style="max-width: 650px; color: #888; line-height: 1.8; font-size: 14px;">
+                Personalized fitness architecture designed for high-stakes results. [span_0](start_span)Certified trainer with a proven track record in strength training and client relationship building[span_0](end_span).
             </p>
-            <button class="gold-btn" onclick="showPage('expertise')">Explore Expertise</button>
+            <button class="gold-btn" onclick="showPage('expertise')">View Expertise</button>
         </section>
-        
         <div class="grid-2">
-            <div class="glass-box" style="border-left: 3px solid #fff;">
-                <h2 style="color: #fff;">Technical Foundation</h2>
-                [span_4](start_span)<p>Leveraging a Diploma in Mechanical Engineering to bring structural precision and biomechanical logic to every training program[span_4](end_span).</p>
+            <div class="glass-box">
+                <h2>Technical Logic</h2>
+                [span_1](start_span)<p>Applying mechanical engineering principles to human movement for maximum biomechanical efficiency[span_1](end_span).</p>
             </div>
             <div class="glass-box">
-                <h2>The Commitment</h2>
-                [span_5](start_span)<p>Fostering a motivating environment while adapting programs for diverse populations, ensuring absolute safety and effectiveness[span_5](end_span).</p>
+                <h2>Elite Commitment</h2>
+                [span_2](start_span)[span_3](start_span)<p>Adapting programs for diverse populations while ensuring absolute safety and elite-level effectiveness[span_2](end_span)[span_3](end_span).</p>
             </div>
         </div>
     </div>
 
     <div id="expertise" class="page">
-        <h1 style="font-family: 'Syncopate'; background: var(--gold-glossy); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; font-size: 1.4rem;">CORE COMPETENCIES</h1>
+        <h1 style="font-family: 'Syncopate'; background: var(--gold-glossy); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; font-size: 1.3rem;">CORE COMPETENCIES</h1>
         <div class="grid-2">
             <div class="glass-box">
                 <h2>Strength & Conditioning</h2>
-                [span_6](start_span)[span_7](start_span)<p>Expert in strength training and fitness instruction, enhancing client retention through personalized, science-backed plans[span_6](end_span)[span_7](end_span).</p>
+                [span_4](start_span)[span_5](start_span)<p>Expert instruction and personalized plans that enhance client retention through consistent results[span_4](end_span)[span_5](end_span).</p>
             </div>
             <div class="glass-box">
                 <h2>Specialized Routines</h2>
-                [span_8](start_span)<p>Adaptive programming for special populations, including seniors and recovery cases, ensuring challenging yet safe progress[span_8](end_span).</p>
+                [span_6](start_span)<p>Custom routines for seniors or those in injury recovery, maintaining challenge while ensuring safety[span_6](end_span).</p>
             </div>
         </div>
         <div class="tag-grid">
-            <div class="tag-item">Strength Training</div>
-            <div class="tag-item">Client Coaching</div>
-            <div class="tag-item">Activity Planning</div>
-            <div class="tag-item">Service Marketing</div>
-            <div class="tag-item">Leadership Skills</div>
-            <div class="tag-item">First Aid & CPR</div>
+            [span_7](start_span)<div class="tag-item">Strength Training[span_7](end_span)</div>
+            [span_8](start_span)<div class="tag-item">Client Coaching[span_8](end_span)</div>
+            [span_9](start_span)<div class="tag-item">Activity Planning[span_9](end_span)</div>
+            [span_10](start_span)<div class="tag-item">Service Marketing[span_10](end_span)</div>
+            [span_11](start_span)<div class="tag-item">Leadership[span_11](end_span)</div>
+            [span_12](start_span)<div class="tag-item">First Aid & CPR[span_12](end_span)</div>
         </div>
     </div>
 
     <div id="career" class="page">
-        <h1 style="font-family: 'Syncopate'; color: #fff; margin-bottom: 40px; font-size: 1.4rem;">PROFESSIONAL TIMELINE</h1>
+        <h1 style="font-family: 'Syncopate'; color: #fff; margin-bottom: 40px; font-size: 1.3rem;">PROFESSIONAL TIMELINE</h1>
         
         <div class="experience-card">
             <div class="exp-header">
                 <span class="exp-title">Personal Trainer</span>
-                <span class="exp-date">AUG 2024 - APR 2025</span>
+                [span_13](start_span)<span class="exp-date">AUG 2024 - APR 2025[span_13](end_span)</span>
             </div>
-            <span class="exp-company">Evolution Fitness Gym | Pune</span>
-            <p style="color: #888; font-size: 14px; line-height: 1.6;">
-                [span_9](start_span)Developed personalized workout plans and monitored progress to improve client fitness levels significantly[span_9](end_span). 
-                [span_10](start_span)Educated clients on proper techniques to mitigate injury risks[span_10](end_span).
+            <span class="exp-company">Evolution Fitness Gym | [span_14](start_span)Pune[span_14](end_span)</span>
+            <p style="color: #888; font-size: 13px; line-height: 1.6;">
+                [span_15](start_span)Developed personalized workout plans and monitored progress to improve client fitness levels significantly[span_15](end_span). [span_16](start_span)Educated clients on proper techniques to reduce injury risk[span_16](end_span).
             </p>
         </div>
 
         <div class="experience-card">
             <div class="exp-header">
                 <span class="exp-title">Sales & Gym Management</span>
-                <span class="exp-date">JAN 2014 - APR 2025</span>
+                [span_17](start_span)<span class="exp-date">JAN 2014 - APR 2025[span_17](end_span)</span>
             </div>
-            <span class="exp-company">Evolution Fitness & Gitai Gym | Pune</span>
-            <p style="color: #888; font-size: 14px; line-height: 1.6;">
-                [span_11](start_span)[span_12](start_span)Resolved problems, improved operations, and provided exceptional service with a strong sense of personal responsibility[span_11](end_span)[span_12](end_span).
+            [span_18](start_span)<span class="exp-company">Evolution Fitness & Gitai Gym[span_18](end_span)</span>
+            <p style="color: #888; font-size: 13px; line-height: 1.6;">
+                [span_19](start_span)[span_20](start_span)Improved operations and provided exceptional service with a strong sense of personal responsibility[span_19](end_span)[span_20](end_span).
             </p>
         </div>
 
         <div class="experience-card">
             <div class="exp-header">
                 <span class="exp-title">Sales Manager</span>
-                <span class="exp-date">MAR 2020 - JAN 2023</span>
+                [span_21](start_span)<span class="exp-date">MAR 2020 - JAN 2023[span_21](end_span)</span>
             </div>
-            <span class="exp-company">KK Developer | Pune</span>
-            <p style="color: #888; font-size: 14px; line-height: 1.6;">
-                [span_13](start_span)[span_14](start_span)Increased sales revenue by implementing effective sales strategies and building long-lasting client relationships through consistent follow-ups[span_13](end_span)[span_14](end_span).
+            <span class="exp-company">KK Developer | [span_22](start_span)Pune[span_22](end_span)</span>
+            <p style="color: #888; font-size: 13px; line-height: 1.6;">
+                [span_23](start_span)[span_24](start_span)Increased sales revenue by implementing effective sales strategies and building long-lasting client relationships[span_23](end_span)[span_24](end_span).
             </p>
         </div>
     </div>
 
     <div id="contact" class="page">
-        <div class="hero" style="height: 50vh;">
-            <h1 style="font-size: 2rem;">START THE JOURNEY</h1>
-            <p style="color: var(--gold-text); letter-spacing: 2px; font-weight: 800; font-size: 1.2rem;">uviirathore5250@gmail.com</p>
-            <p style="color: #666; margin-top: 10px; font-size: 14px; letter-spacing: 3px;">PUNE, IN | 7387075250</p>
-            <div style="margin-top: 40px; border-top: 1px solid #222; padding-top: 20px;">
-                <span style="font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: 5px;">Elite Access Only</span>
-            </div>
+        <div class="hero">
+            <h1 style="font-size: 1.8rem;">SECURE CONNECTION</h1>
+            [span_25](start_span)<p style="color: var(--gold-text); font-weight: 800; font-size: 1.1rem; margin-top: 10px;">uviirathore5250@gmail.com[span_25](end_span)</p>
+            <p style="color: #555; margin-top: 5px; font-size: 13px;">PUNE, IN | [span_26](start_span)7387075250[span_26](end_span)</p>
         </div>
     </div>
 
-    <footer>YUVRAJ SINGH | PROFESSIONAL PORTFOLIO © 2026</footer>
+    <footer>YUVRAJ SINGH © 2026</footer>
 
     <script>
         function showPage(pageId) {
@@ -240,39 +228,33 @@
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 1.5 + 0.2;
-                this.speedY = Math.random() * 0.3 - 0.15;
-                this.speedX = Math.random() * 0.3 - 0.15;
+                this.speedY = Math.random() * 0.2 - 0.1;
+                this.speedX = Math.random() * 0.2 - 0.1;
                 this.opacity = Math.random() * 0.5;
-                this.twinkle = Math.random() * 0.02;
             }
             update() {
                 this.y += this.speedY;
                 this.x += this.speedX;
-                this.opacity += this.twinkle;
-                if (this.opacity > 0.6 || this.opacity < 0.1) this.twinkle = -this.twinkle;
                 if (this.y < 0) this.y = canvas.height;
                 if (this.y > canvas.height) this.y = 0;
                 if (this.x < 0) this.x = canvas.width;
                 if (this.x > canvas.width) this.x = 0;
             }
             draw() {
-                ctx.fillStyle = `rgba(255, 240, 150, ${this.opacity})`;
+                ctx.fillStyle = `rgba(255, 245, 180, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        function setup() {
-            particles = [];
-            for (let i = 0; i < 150; i++) particles.push(new Particle());
-        }
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animate);
         }
-        setup();
         animate();
     </script>
 </body>
