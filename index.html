@@ -5,68 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YUVRAJ SINGH RATHORE | SALES & MANAGEMENT EXECUTIVE</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syncopate:wght@700;800&display=swap');
 
         :root {
-            --gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #aa771c 100%);
-            --gold-solid: #e1b382;
-            --black: #050505;
-            --dark-card: #0f0f0f;
+            --gold: linear-gradient(135deg, #d4af37 0%, #fff3a8 45%, #aa771c 100%);
+            --gold-solid: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --black: #080808;
+            --dark-card: rgba(18, 18, 18, 0.75);
+            --border-color: rgba(255, 255, 255, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
         body { 
             background-color: var(--black); 
-            color: #ffffff; 
-            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0; 
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* Nav Bar */
+        /* Ambient Glow in Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -20%; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Executive Header Navigation */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(0,0,0,0.95);
-            border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000;
-            backdrop-filter: blur(10px);
+            padding: 22px 10%; background: rgba(8, 8, 8, 0.85);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(15px);
         }
-        /* Logo changed to RESUME as requested */
-        .logo { font-family: 'Syncopate'; font-size: 1.1rem; letter-spacing: 3px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        nav a { color: #fff; text-decoration: none; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-left: 25px; letter-spacing: 1px; }
+        .logo { 
+            font-family: 'Syncopate', sans-serif; font-size: 1rem; font-weight: 800; 
+            letter-spacing: 4px; background: var(--gold); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        nav a { 
+            color: #888; text-decoration: none; font-size: 11px; font-weight: 700; 
+            text-transform: uppercase; margin-left: 30px; letter-spacing: 1.5px; 
+            transition: all 0.3s ease;
+        }
+        nav a:hover { color: var(--gold-solid); }
 
-        /* Sections */
-        section { padding: 100px 10%; border-bottom: 1px solid #111; }
+        /* Sections Structure */
+        section { padding: 90px 12%; border-bottom: 1px solid var(--border-color); position: relative; z-index: 1; }
         
-        /* Hero Section */
-        .hero { text-align: center; padding: 120px 10%; }
-        .hero h1 { font-family: 'Syncopate'; font-size: clamp(2rem, 6vw, 4rem); background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-        .hero p { max-width: 700px; margin: 0 auto; color: #888; font-size: 18px; font-weight: 300; }
+        /* Hero Header */
+        .hero { text-align: center; padding: 130px 10% 80px; }
+        .hero .sub-heading { 
+            color: #666; font-size: 11px; font-weight: 800; letter-spacing: 6px; 
+            margin-bottom: 15px; text-transform: uppercase; 
+        }
+        .hero h1 { 
+            font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); 
+            font-weight: 800; background: var(--gold); -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; margin-bottom: 15px; letter-spacing: -1px;
+        }
+        .hero .experience-badge { 
+            display: inline-block; background: var(--gold-glow); border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold-solid); font-weight: 800; font-size: 12px; letter-spacing: 3px; 
+            padding: 6px 20px; border-radius: 30px; margin-bottom: 25px; font-family: 'Syncopate', sans-serif;
+        }
+        .hero p { max-width: 680px; margin: 0 auto; color: #a0a0a0; font-size: 16px; font-weight: 400; line-height: 1.8; }
 
-        .section-title { font-family: 'Syncopate'; font-size: 1.5rem; color: var(--gold-solid); margin-bottom: 50px; text-align: center; letter-spacing: 5px; }
+        .section-title { 
+            font-family: 'Syncopate', sans-serif; font-size: 1.25rem; font-weight: 800; 
+            color: var(--gold-solid); margin-bottom: 50px; text-align: center; letter-spacing: 4px; 
+        }
 
-        /* Sales & Management Highlights */
+        /* Modern Grid Layout */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: var(--dark-card); padding: 40px; border: 1px solid #1a1a1a; transition: 0.3s; }
-        .card:hover { border-color: var(--gold-solid); transform: translateY(-5px); }
-        .card h3 { font-family: 'Syncopate'; font-size: 0.9rem; margin-bottom: 15px; color: #fff; }
-        .card p { font-size: 14px; color: #777; }
+        .card { 
+            background: var(--dark-card); backdrop-filter: blur(10px);
+            padding: 35px; border: 1px solid var(--border-color); border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .card:hover { 
+            border-color: var(--gold-solid); transform: translateY(-6px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--gold-glow);
+        }
+        .card h3 { font-family: 'Syncopate', sans-serif; font-size: 0.85rem; margin-bottom: 15px; color: #fff; letter-spacing: 1px; }
+        .card p { font-size: 14px; color: #888; font-weight: 400; }
 
-        /* Timeline */
-        .timeline-item { position: relative; padding-left: 30px; border-left: 1px solid #222; margin-bottom: 50px; }
-        .timeline-item::before { content: ""; position: absolute; left: -5px; top: 0; width: 9px; height: 9px; background: var(--gold-solid); border-radius: 50%; }
-        .role-title { font-family: 'Syncopate'; font-size: 1.1rem; color: #fff; display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .role-date { color: var(--gold-solid); font-size: 12px; font-weight: 800; }
-        .company-name { display: block; color: #555; font-weight: 800; text-transform: uppercase; font-size: 12px; margin: 5px 0 15px; }
-        .role-desc { list-style: none; color: #999; font-size: 14px; }
-        .role-desc li { margin-bottom: 8px; }
-        .role-desc li::before { content: "→ "; color: var(--gold-solid); }
+        /* Professional Timeline */
+        .timeline { max-width: 850px; margin: 0 auto; }
+        .timeline-item { 
+            position: relative; padding-left: 35px; border-left: 2px solid #222; 
+            margin-bottom: 45px; transition: all 0.3s ease;
+        }
+        .timeline-item::before { 
+            content: ""; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; 
+            background: var(--black); border: 2px solid var(--gold-solid); border-radius: 50%; 
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            background: var(--gold-solid); box-shadow: 0 0 12px var(--gold-solid);
+        }
+        .role-title { 
+            font-family: 'Syncopate', sans-serif; font-size: 0.95rem; font-weight: 700; 
+            color: #fff; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+        }
+        .role-date { color: var(--gold-solid); font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+        .company-name { display: block; color: #666; font-weight: 700; text-transform: uppercase; font-size: 12px; margin: 4px 0 15px; letter-spacing: 1px; }
+        .role-desc { list-style: none; color: #a0a0a0; font-size: 14px; }
+        .role-desc li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .role-desc li::before { content: "•"; position: absolute; left: 0; color: var(--gold-solid); font-size: 16px; line-height: 1; }
 
-        /* Skills Tags */
-        .tag-box { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        .tag { background: #111; padding: 12px 25px; font-size: 11px; font-weight: 800; text-transform: uppercase; border: 1px solid #222; color: #666; }
+        /* Skill Pills */
+        .tag-box { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 900px; margin: 0 auto; }
+        .tag { 
+            background: var(--dark-card); padding: 12px 22px; font-size: 11px; font-weight: 700; 
+            text-transform: uppercase; border: 1px solid var(--border-color); color: #aaa; 
+            border-radius: 6px; letter-spacing: 1px; transition: all 0.3s ease;
+        }
+        .tag:hover { border-color: var(--gold-solid); color: #fff; background: var(--gold-glow); transform: translateY(-2px); }
 
-        footer { text-align: center; padding: 60px; color: #333; font-size: 10px; letter-spacing: 3px; }
+        /* Contact Section */
+        .contact-box { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 50px; text-align: center; }
+        .contact-email { color: var(--gold-solid); font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 10px; text-decoration: none; display: inline-block; }
+        .contact-email:hover { text-decoration: underline; }
 
-        @media (max-width: 768px) { .role-title { font-size: 0.9rem; } }
+        footer { text-align: center; padding: 50px 10%; color: #444; font-size: 11px; font-weight: 600; letter-spacing: 2px; }
+
+        /* Print Optimization for PDF Generation */
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            header, body::before { display: none !important; }
+            section { padding: 30px 0 !important; border-bottom: 1px solid #ddd !important; }
+            .card, .contact-box, .tag { background: #fff !important; border: 1px solid #ddd !important; color: #000 !important; }
+            .hero h1, .section-title, .role-date, .contact-email { color: #000 !important; -webkit-text-fill-color: initial !important; }
+            .company-name, .hero p, .role-desc, .card p { color: #333 !important; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 6%; }
+            header { padding: 18px 6%; }
+            nav { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -82,25 +166,25 @@
     </header>
 
     <section id="about" class="hero">
-        <h1 style="background: none; -webkit-text-fill-color: #333; font-size: 12px; letter-spacing: 8px; margin-bottom: 15px;">SALES EXECUTIVE & STRATEGIST</h1>
+        <div class="sub-heading">Sales Executive & Strategist</div>
         <h1>YUVRAJ SINGH RATHORE</h1>
-        <p style="color: var(--gold-solid); font-weight: 800; font-size: 14px; letter-spacing: 4px; margin-bottom: 15px; font-family: 'Syncopate';">12+ YEARS OF EXCELLENCE</p>
-        <p>Expert in <strong>Revenue Growth</strong> and <strong>Operational Management</strong> with a 12-year track record of high-ticket client acquisition and relationship building.</p>
+        <div class="experience-badge">12+ YEARS OF EXCELLENCE</div>
+        <p>Dynamic operations and business strategist with a 12-year track record in high-ticket client acquisition, team leadership, and driving scalable revenue growth across fitness and corporate management sectors.</p>
     </section>
 
     <section>
         <div class="grid-3">
             <div class="card">
-                <h3>Revenue Growth</h3>
-                <p>Proven ability to design sales strategies that convert leads into long-term revenue streams.</p>
+                <h3>Revenue Strategy</h3>
+                <p>Designing targeted sales funnels and high-conversion frameworks that turn prospects into loyal, long-term clients.</p>
             </div>
             <div class="card">
-                <h3>Management</h3>
-                <p>12+ years of operational gym management, handling facility ROI and team leadership.</p>
+                <h3>Operations Leadership</h3>
+                <p>Over 12 years of hands-on operational leadership, optimizing facility performance, ROI, and team output.</p>
             </div>
             <div class="card">
-                <h3>Precision</h3>
-                <p>Applying Mechanical Engineering principles to business workflows for maximum efficiency.</p>
+                <h3>Process Engineering</h3>
+                <p>Applying mechanical engineering principles to streamline business workflows and eliminate operational friction.</p>
             </div>
         </div>
     </section>
@@ -108,66 +192,66 @@
     <section id="experience">
         <h2 class="section-title">PROFESSIONAL TIMELINE</h2>
 
-        <div class="timeline-item">
-            <div class="role-title">
-                <span>GYM MANAGER & OPERATIONS</span>
-                <span class="role-date">FEB 2025 - FEB 2026</span>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="role-title">
+                    <span>GYM MANAGER & OPERATIONS</span>
+                    <span class="role-date">FEB 2025 - FEB 2026</span>
+                </div>
+                <span class="company-name">Taiso Fitness | Panvel & Seawoods</span>
+                <ul class="role-desc">
+                    <li>Directing full-scale gym operations, trainer performance metrics, and service quality.</li>
+                    <li>Executed targeted sales strategies for Personal Training (PT) and annual memberships.</li>
+                    <li>Integrated strategic workflows to increase overall facility retention and profitability.</li>
+                </ul>
             </div>
-            <span class="company-name">Taiso Fitness | Panvel & Seawoods</span>
-            <ul class="role-desc">
-                <li>Managed end-to-end gym operations and trainer performance standards.</li>
-                <li>Strategically improved Personal Training (PT) and General Membership sales.</li>
-                <li>Implemented systems to boost overall gym revenue and client retention.</li>
-                <li>Maintained high-quality service delivery through effective staff management.</li>
-            </ul>
-        </div>
 
-        <div class="timeline-item">
-            <div class="role-title">
-                <span>SALES MANAGER</span>
-                <span class="role-date">MAR 2020 - JAN 2023</span>
+            <div class="timeline-item">
+                <div class="role-title">
+                    <span>SALES MANAGER</span>
+                    <span class="role-date">MAR 2020 - JAN 2023</span>
+                </div>
+                <span class="company-name">KK Developer | Pune</span>
+                <ul class="role-desc">
+                    <li>Accelerated top-line revenue through aggressive market analysis and closing frameworks.</li>
+                    <li>Cultivated relationships with high-net-worth clients via customized consulting.</li>
+                    <li>Built sustainable pipeline strategies to secure key market share.</li>
+                </ul>
             </div>
-            <span class="company-name">KK Developer | Pune</span>
-            <ul class="role-desc">
-                <li>Increased sales revenue by developing and implementing aggressive sales frameworks.</li>
-                <li>Built long-lasting HNI client relationships through exceptional service and consistent follow-ups.</li>
-                <li>Identified market needs and customized service offerings to ensure quick deal closure.</li>
-            </ul>
-        </div>
 
-        <div class="timeline-item">
-            <div class="role-title">
-                <span>SALES & GYM MANAGEMENT</span>
-                <span class="role-date">JAN 2014 - DEC 2024</span>
+            <div class="timeline-item">
+                <div class="role-title">
+                    <span>SALES & GYM MANAGEMENT</span>
+                    <span class="role-date">JAN 2014 - DEC 2024</span>
+                </div>
+                <span class="company-name">Evolution Fitness & Gitai Gym | Pune</span>
+                <ul class="role-desc">
+                    <li>Spearheaded operations and membership conversion teams across high-capacity locations.</li>
+                    <li>Overhauled member onboard journeys to raise retention standards significantly.</li>
+                    <li>Resolved operational bottlenecks and raised service delivery benchmarks.</li>
+                </ul>
             </div>
-            <span class="company-name">Evolution Fitness & Gitai Gym | Pune</span>
-            <ul class="role-desc">
-                <li>Headed membership sales and gym operations with a focus on high client retention.</li>
-                <li>Resolved operational bottlenecks and improved facility service delivery standards.</li>
-                <li>Managed high-stakes client relations with a strong sense of personal responsibility.</li>
-            </ul>
-        </div>
 
-        <div class="timeline-item">
-            <div class="role-title">
-                <span>SALES TRAINER & COACH</span>
-                <span class="role-date">AUG 2014 - JUL 2024</span>
+            <div class="timeline-item">
+                <div class="role-title">
+                    <span>SALES TRAINER & COACH</span>
+                    <span class="role-date">AUG 2014 - JUL 2024</span>
+                </div>
+                <span class="company-name">R G Fitness Club | Pune</span>
+                <ul class="role-desc">
+                    <li>Merged consultative technical fitness knowledge with high-value package selling.</li>
+                    <li>Consistently exceeded monthly sales targets for premium specialized training.</li>
+                </ul>
             </div>
-            <span class="company-name">R G Fitness Club | Pune</span>
-            <ul class="role-desc">
-                <li>Combined technical fitness coaching with service marketing to drive personal training sales.</li>
-                <li>Mastered client retention through tailored communication and psychological motivation.</li>
-                <li>Consistently over-achieved monthly sales targets for premium coaching packages.</li>
-            </ul>
-        </div>
 
-        <div class="timeline-item">
-            <div class="role-title">
-                <span>DIPLOMA IN MECHANICAL ENGINEERING</span>
-                <span class="role-date">JAN 2018</span>
+            <div class="timeline-item">
+                <div class="role-title">
+                    <span>DIPLOMA IN MECHANICAL ENGINEERING</span>
+                    <span class="role-date">JAN 2018</span>
+                </div>
+                <span class="company-name">MIPS Barmer | Rajasthan</span>
+                <p style="color: #888; font-size: 14px;">Foundation in analytical reasoning, systematic troubleshooting, and structural design.</p>
             </div>
-            <span class="company-name">MIPS Barmer | Rajasthan</span>
-            <p style="color: #666; font-size: 14px;">Structural thinking and logical problem-solving foundation.</p>
         </div>
     </section>
 
@@ -177,22 +261,24 @@
             <div class="tag">Business Development</div>
             <div class="tag">Lead Generation</div>
             <div class="tag">Relationship Building</div>
-            <div class="tag">Decision-Making</div>
-            <div class="tag">Problem-Solving</div>
+            <div class="tag">Strategic Planning</div>
+            <div class="tag">Conflict Resolution</div>
             <div class="tag">Service Marketing</div>
-            <div class="tag">CRM Management</div>
-            <div class="tag">Leadership</div>
-            <div class="tag">Team Management</div>
+            <div class="tag">CRM Systems</div>
+            <div class="tag">Team Leadership</div>
+            <div class="tag">Operational Efficiency</div>
         </div>
     </section>
 
-    <section id="contact" style="text-align: center;">
-        <h2 class="section-title">GET IN TOUCH</h2>
-        <p style="color: var(--gold-solid); font-size: 24px; font-weight: 800; margin-bottom: 10px;">uvirathore5250@gmail.com</p>
-        <p style="color: #888; letter-spacing: 5px;">PUNE & MUMBAI | +91 7387075250</p>
+    <section id="contact">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 20px;">LET'S CONNECT</h2>
+            <a href="mailto:uvirathore5250@gmail.com" class="contact-email">uvirathore5250@gmail.com</a>
+            <p style="color: #777; font-weight: 700; letter-spacing: 3px; font-size: 12px; margin-top: 10px;">PUNE & MUMBAI | +91 7387075250</p>
+        </div>
     </section>
 
-    <footer>YUVRAJ SINGH RATHORE © 2026 | DESIGNED FOR GROWTH</footer>
+    <footer>YUVRAJ SINGH RATHORE © 2026 | ALL RIGHTS RESERVED</footer>
 
 </body>
 </html>
